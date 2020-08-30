@@ -14,13 +14,16 @@
 
 <style scoped lang="scss">
 .aside {
-  flex-basis: 25rem;
-  flex-shrink: 0;
-  flex-grow: 0;
-  margin-right: 4rem;
+  left: 50%;
+  transform: translateX(-62rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: fixed;
+  width: 25rem;
+  background: #ffffff;
+  z-index: 1;
+  height: 100%;
 }
 
 .aside-content {

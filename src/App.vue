@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Layout>
+      <SkillsList />
       <ProjectList />
     </Layout>
   </div>
@@ -9,12 +10,14 @@
 <script>
 import Layout from "./components/layout/Layout";
 import ProjectList from "./components/projects/ProjectList";
+import SkillsList from "./components/skills/SkillsList";
 
 export default {
   name: "App",
   components: {
     ProjectList,
-    Layout
+    Layout,
+    SkillsList
   }
 };
 </script>
@@ -28,6 +31,7 @@ body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
   font-size: 1.6rem;
+  --primary: #3c4bff;
 }
 
 #app {
@@ -40,5 +44,24 @@ body * {
 
 .text-muted {
   color: #898989;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+button {
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  font-weight: bold;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 }
 </style>

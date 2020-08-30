@@ -8,6 +8,11 @@
           :project="project"
         />
       </div>
+
+      <div class="buttons">
+        <button @click="handleHide" v-if="displayedProjects.length > 6">Collapse</button>
+        <button @click="handleLoad" v-if="!allProjects">Display more</button>
+      </div>
     </template>
   </Section>
 </template>
@@ -28,12 +33,21 @@ export default {
     if (!this.projects) this.PROJECTS_FETCH();
   },
   methods: {
-    ...mapActions(["PROJECTS_FETCH"])
+    ...mapActions(["PROJECTS_FETCH"]),
+    handleLoad() {
+      this.page++;
+    },
+    handleHide() {
+      this.page = 1
+    }
   },
   computed: {
     ...mapGetters(["projects"]),
     displayedProjects() {
       return this.projects.slice(0, this.page * 6);
+    },
+    allProjects() {
+      return this.projects.length === this.displayedProjects.length;
     }
   },
   components: {
@@ -43,10 +57,19 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .project-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1rem;
+}
+
+.buttons {
+  margin: 1rem 0;
+  text-align: center;
+
+  button {
+    margin: 0 1rem;
+  }
 }
 </style>

@@ -16,5 +16,6 @@ export default {
 <style scoped>
 .section {
   margin-bottom: 4rem;
+  padding-top: 2rem;
 }
 </style>

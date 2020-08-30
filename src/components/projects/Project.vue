@@ -41,5 +41,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
+  text-align: left;
 }
 </style>
