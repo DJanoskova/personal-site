@@ -18,7 +18,7 @@ export default createStore({
   actions: {
     async PROJECTS_FETCH({ commit }) {
       const result = await axios.get(
-        "https://api.github.com/users/DJanoskova/repos"
+        "https://api.github.com/users/DJanoskova/repos?per_page=100"
       );
       // display only the ones that aren't forked
       const filteredRepos = result

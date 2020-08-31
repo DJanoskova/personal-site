@@ -8,5 +8,6 @@
 .icon-container {
   display: flex;
   margin: 0.5rem -1rem;
+  align-items: center;
 }
 </style>

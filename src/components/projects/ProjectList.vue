@@ -23,6 +23,11 @@
         type="primary"
         icon="chevron-up"
       />
+      <Dot
+        v-for="loopedPage in pages"
+        :active="loopedPage === page"
+        :key="loopedPage"
+      />
       <Button
         @click="handleLoad"
         :disabled="lastPage"
@@ -39,6 +44,7 @@ import { mapActions, mapGetters } from "vuex";
 import Project from "./Project";
 import Section from "../layout/Section";
 import Button from "../Button";
+import Dot from "../misc/Dot";
 
 export default {
   data() {
@@ -74,6 +80,7 @@ export default {
     }
   },
   components: {
+    Dot,
     Button,
     Section,
     Project
@@ -83,23 +90,27 @@ export default {
 
 <style scoped lang="scss">
 .container {
+  position: relative;
+  padding-right: 6rem;
+}
+
+.buttons {
+  position: absolute;
+  top: 25rem;
+  right: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
+
+  button {
+    margin: 0.5rem 0;
+  }
 }
 
 .project-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -1rem;
-}
-
-.buttons {
-  margin: 1rem 0;
-  text-align: center;
-
-  button {
-    margin: 0 1rem;
-  }
 }
 
 .list-enter-active,
