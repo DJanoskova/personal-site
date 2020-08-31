@@ -49,13 +49,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .wrapper {
   flex-basis: calc(100% / 3);
   flex-shrink: 0;
   flex-grow: 0;
   height: 25rem;
   display: flex;
+
+  @media all and (max-width: 850px) {
+    flex-basis: 50%;
+  }
+
+  @media all and (max-width: 600px) {
+    flex-basis: 100%;
+  }
 }
 
 .project {

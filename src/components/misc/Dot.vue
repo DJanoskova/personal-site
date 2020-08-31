@@ -10,7 +10,7 @@ export default {
       default: false
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -25,6 +25,6 @@ export default {
   &.active {
     background: var(--primary);
     transform: scale(2);
-   }
+  }
 }
 </style>

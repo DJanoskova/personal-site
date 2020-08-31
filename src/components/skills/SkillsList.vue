@@ -1,12 +1,12 @@
 <template>
-  <Section title="Ask me about">
+  <Section title="Most used skills">
     <div class="skill-list">
       <Skill
-          v-for="skill in skills"
-          :icon="skill.icon"
-          :key="skill.icon"
-          :title="skill.title"
-          :color="skill.color"
+        v-for="skill in skills"
+        :icon="skill.icon"
+        :key="skill.icon"
+        :title="skill.title"
+        :color="skill.color"
       />
     </div>
   </Section>
@@ -16,7 +16,7 @@
 import skills from "../../const/skills";
 
 import Section from "../layout/Section";
-import Skill from "./Skill";
+import Skill from "../icons/IconCard";
 
 export default {
   data() {

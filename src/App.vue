@@ -4,6 +4,7 @@
       <SkillsList />
       <ProjectList />
       <ArticleList />
+      <LinkList />
     </Layout>
   </div>
 </template>
@@ -13,6 +14,7 @@ import Layout from "./components/layout/Layout";
 import ProjectList from "./components/projects/ProjectList";
 import SkillsList from "./components/skills/SkillsList";
 import ArticleList from "./components/articles/ArticleList";
+import LinkList from "./components/links/LinksList";
 
 export default {
   name: "App",
@@ -20,7 +22,8 @@ export default {
     ProjectList,
     Layout,
     SkillsList,
-    ArticleList
+    ArticleList,
+    LinkList
   }
 };
 </script>
@@ -35,6 +38,7 @@ body {
   margin: 0;
   font-size: 1.6rem;
   --primary: #3c4bff;
+  color: #262626;
 }
 
 #app {

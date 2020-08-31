@@ -1,5 +1,9 @@
 <template>
-  <component :is="tag" :class="['button', type, { icon: onlyIcon }]" v-bind="props">
+  <component
+    :is="tag"
+    :class="['button', type, { icon: onlyIcon }]"
+    v-bind="props"
+  >
     <i :class="`fas fa-${icon}`" v-if="icon" />
     <slot />
   </component>

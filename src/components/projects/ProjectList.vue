@@ -2,12 +2,7 @@
   <div class="container">
     <Section title="GitHub projects">
       <template v-if="projects">
-        <transition-group
-          name="list"
-          tag="div"
-          class="project-list"
-          appear
-        >
+        <transition-group name="list" tag="div" class="project-list" appear>
           <Project
             v-for="project in displayedProjects"
             :key="project.id"

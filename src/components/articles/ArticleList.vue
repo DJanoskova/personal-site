@@ -13,11 +13,20 @@ import Section from "../layout/Section";
 export default {
   mounted() {
     // eslint-disable-next-line no-undef
-    MediumWidget.Init({renderTo: '#medium-widget', params: {"resource":"https://medium.com/@danajanoskova","postsPerLine":1,"limit":10,"picture":"small","fields":["description","claps","publishAt"],"ratio":"landscape"}})
+    MediumWidget.Init({
+      renderTo: "#medium-widget",
+      params: {
+        resource: "https://medium.com/@danajanoskova",
+        postsPerLine: 1,
+        limit: 10,
+        picture: "small",
+        fields: ["description", "claps", "publishAt"],
+        ratio: "landscape"
+      }
+    });
   },
   components: {
     Section
   }
 };
 </script>
-
