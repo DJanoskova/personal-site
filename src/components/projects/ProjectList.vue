@@ -1,20 +1,36 @@
 <template>
-  <Section title="GitHub projects">
-    <template v-if="projects">
-      <div class="project-list">
+  <div class="container">
+    <Section title="GitHub projects">
+      <transition-group
+        name="list"
+        tag="div"
+        class="project-list"
+        appear
+        v-if="projects"
+      >
         <Project
           v-for="project in displayedProjects"
           :key="project.id"
           :project="project"
         />
-      </div>
+      </transition-group>
+    </Section>
 
-      <div class="buttons">
-        <button @click="handleHide" v-if="displayedProjects.length > 6">Collapse</button>
-        <button @click="handleLoad" v-if="!allProjects">Display more</button>
-      </div>
-    </template>
-  </Section>
+    <div class="buttons">
+      <Button
+        @click="handlePrev"
+        :disabled="page <= 1"
+        type="primary"
+        icon="chevron-up"
+      />
+      <Button
+        @click="handleLoad"
+        :disabled="lastPage"
+        type="primary"
+        icon="chevron-down"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,6 +38,7 @@ import { mapActions, mapGetters } from "vuex";
 
 import Project from "./Project";
 import Section from "../layout/Section";
+import Button from "../Button";
 
 export default {
   data() {
@@ -37,20 +54,27 @@ export default {
     handleLoad() {
       this.page++;
     },
-    handleHide() {
-      this.page = 1
+    handlePrev() {
+      this.page--;
     }
   },
   computed: {
     ...mapGetters(["projects"]),
     displayedProjects() {
-      return this.projects.slice(0, this.page * 6);
+      const { page } = this;
+      return this.projects.slice((page - 1) * 6, page * 6);
     },
-    allProjects() {
-      return this.projects.length === this.displayedProjects.length;
+    lastPage() {
+      return this.page >= this.pages;
+    },
+    pages() {
+      const { projects } = this;
+      if (!projects) return 0;
+      return Math.ceil(this.projects.length / 6);
     }
   },
   components: {
+    Button,
     Section,
     Project
   }
@@ -58,6 +82,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  display: flex;
+  align-items: center;
+}
+
 .project-list {
   display: flex;
   flex-wrap: wrap;
@@ -71,5 +100,16 @@ export default {
   button {
     margin: 0 1rem;
   }
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s;
+}
+
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  height: 0;
 }
 </style>

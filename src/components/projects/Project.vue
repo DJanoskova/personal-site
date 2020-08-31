@@ -1,23 +1,22 @@
 <template>
-  <Card class="project">
-    <div>
-      <strong class="title">
-        <a :href="project.html_url" target="_blank">
-          {{ project.name }}
-        </a>
-      </strong>
-      <p class="text-muted">
-        {{ project.homepage }}
-      </p>
-      <p>
-        {{ project.description }}
-      </p>
-    </div>
-    <IconContainer>
-      <IconLabel icon="star far" :label="`${project.stargazers_count}`" />
-      <IconLabel icon="code-branch fas" :label="`${project.forks_count}`" />
-    </IconContainer>
-  </Card>
+  <div class="wrapper">
+    <Card class="project">
+      <div>
+        <strong class="title">
+          <a :href="projecthomepage || project.html_url" target="_blank">
+            {{ project.name }}
+          </a>
+        </strong>
+        <p>
+          {{ project.description }}
+        </p>
+      </div>
+      <IconContainer>
+        <IconLabel icon="star far" :label="`${project.stargazers_count}`" />
+        <IconLabel icon="code-branch fas" :label="`${project.forks_count}`" />
+      </IconContainer>
+    </Card>
+  </div>
 </template>
 
 <script>
@@ -34,13 +33,22 @@ export default {
 </script>
 
 <style scoped>
-.project {
+.wrapper {
   flex-basis: calc((100% / 3) - 2rem);
   flex-shrink: 0;
+  flex-grow: 0;
+  background: white;
+  height: 25rem;
+  display: flex;
+}
+
+.project {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
   text-align: left;
+  background: white;
+  width: 100%;
 }
 </style>

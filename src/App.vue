@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Layout>
-      <SkillsList />
       <ProjectList />
+      <SkillsList />
     </Layout>
   </div>
 </template>
@@ -53,15 +53,5 @@ a {
   &:hover {
     text-decoration: underline;
   }
-}
-
-button {
-  background: var(--primary);
-  color: #ffffff;
-  border-radius: 2rem;
-  padding: 1rem 2rem;
-  border: none;
-  font-weight: bold;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
 }
 </style>
