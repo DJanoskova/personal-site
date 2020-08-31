@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <Layout>
-      <ProjectList />
       <SkillsList />
+      <ProjectList />
+      <ArticleList />
     </Layout>
   </div>
 </template>
@@ -11,13 +12,15 @@
 import Layout from "./components/layout/Layout";
 import ProjectList from "./components/projects/ProjectList";
 import SkillsList from "./components/skills/SkillsList";
+import ArticleList from "./components/articles/ArticleList";
 
 export default {
   name: "App",
   components: {
     ProjectList,
     Layout,
-    SkillsList
+    SkillsList,
+    ArticleList
   }
 };
 </script>

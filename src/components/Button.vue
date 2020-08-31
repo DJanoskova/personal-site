@@ -37,11 +37,15 @@ export default {
   padding: 1rem 2rem;
   border: none;
   font-weight: bold;
-  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.15);
   outline: none;
   background: #ffffff;
   transition: 0.2s;
   cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.15);
+  }
 
   &.icon {
     padding: 0;
@@ -62,7 +66,6 @@ export default {
     color: #ffffff;
     cursor: default;
     box-shadow: none;
-    cursor: default;
   }
 }
 </style>

@@ -4,15 +4,11 @@ import axios from "../axios";
 
 export default createStore({
   state: {
-    projects: null,
-    articles: null
+    projects: null
   },
   mutations: {
     PROJECTS_SET(state, projects) {
       state.projects = projects;
-    },
-    ARTICLES_SET(state, articles) {
-      state.articles = articles;
     }
   },
   actions: {
@@ -26,7 +22,6 @@ export default createStore({
         .sort((a, b) => {
           return b.stargazers_count - a.stargazers_count;
         });
-      console.log(filteredRepos);
       commit("PROJECTS_SET", filteredRepos);
     }
   },

@@ -1,40 +1,40 @@
 <template>
   <div class="container">
     <Section title="GitHub projects">
-      <transition-group
-        name="list"
-        tag="div"
-        class="project-list"
-        appear
-        v-if="projects"
-      >
-        <Project
-          v-for="project in displayedProjects"
-          :key="project.id"
-          :project="project"
-        />
-      </transition-group>
+      <template v-if="projects">
+        <transition-group
+          name="list"
+          tag="div"
+          class="project-list"
+          appear
+        >
+          <Project
+            v-for="project in displayedProjects"
+            :key="project.id"
+            :project="project"
+          />
+        </transition-group>
+        <div class="buttons">
+          <Button
+            @click="handlePrev"
+            :disabled="page <= 1"
+            type="primary"
+            icon="chevron-up"
+          />
+          <Dot
+            v-for="loopedPage in pages"
+            :active="loopedPage === page"
+            :key="loopedPage"
+          />
+          <Button
+            @click="handleLoad"
+            :disabled="lastPage"
+            type="primary"
+            icon="chevron-down"
+          />
+        </div>
+      </template>
     </Section>
-
-    <div class="buttons">
-      <Button
-        @click="handlePrev"
-        :disabled="page <= 1"
-        type="primary"
-        icon="chevron-up"
-      />
-      <Dot
-        v-for="loopedPage in pages"
-        :active="loopedPage === page"
-        :key="loopedPage"
-      />
-      <Button
-        @click="handleLoad"
-        :disabled="lastPage"
-        type="primary"
-        icon="chevron-down"
-      />
-    </div>
   </div>
 </template>
 
@@ -91,6 +91,9 @@ export default {
 <style scoped lang="scss">
 .container {
   position: relative;
+}
+
+.project-list {
   padding-right: 6rem;
 }
 

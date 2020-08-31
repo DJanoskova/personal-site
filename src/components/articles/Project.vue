@@ -54,6 +54,7 @@ export default {
   flex-basis: calc(100% / 3);
   flex-shrink: 0;
   flex-grow: 0;
+  background: white;
   height: 25rem;
   display: flex;
 }
