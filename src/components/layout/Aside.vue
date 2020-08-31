@@ -2,10 +2,7 @@
   <div class="aside">
     <div class="aside-content">
       <div class="photo">
-        <img
-          src="https://avatars2.githubusercontent.com/u/35444313?s=460&u=560740e92e86abc19ea9af92372daaf64999978a&v=4"
-          alt="Photo"
-        />
+        <img src="../../assets/photo.jpg" alt="Photo" />
       </div>
       <h1>Dana Janoskova</h1>
       <p class="description">
